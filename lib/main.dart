@@ -1,10 +1,43 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:audioplayers/src/audio_cache.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() => runApp(piano());
 
 class piano extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: SplashScreenPage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class SplashScreenPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(
+      seconds: 3,
+      navigateAfterSeconds: new homepage_piano(),
+      backgroundColor: Colors.yellow,
+      title: new Text(
+        'Welcome to a mimi piano App',
+        textScaleFactor: 2,
+      ),
+      loadingText: Text("Loading"),
+      photoSize: 150.0,
+      loaderColor: Colors.red,
+    );
+  }
+}
+
+class homepage_piano extends StatelessWidget {
   void playsound(int a) {
     final player = AudioPlayer();
     player.play(DeviceFileSource('assets/note$a.wav'));
@@ -29,6 +62,9 @@ class piano extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          title: Center(child: Text(" Mini Piano")),
+        ),
         backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
