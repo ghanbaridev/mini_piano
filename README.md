@@ -4,17 +4,19 @@ mini piano
 In this app, I was able to create a simple app like a small piano by using the basis of Flutter, such as the column and the expand widget, and the functions. In this app, I used the Audio Player version 3 package to play the sound, and it also has a loading page for 3 seconds.
 
 
+You can see the images related to the app below
 
 
 
 
 
 
+![home of app](https://user-images.githubusercontent.com/104554904/224550880-0546ece8-7686-4249-beb0-abc3a928cb37.png)
 
 
 
 
-
+![loading screen of app](https://user-images.githubusercontent.com/104554904/224550889-5b94cf91-c172-48a5-b44b-078257e3ae62.png)
 
 
 
