@@ -10,6 +10,20 @@ class piano extends StatelessWidget {
     player.play(DeviceFileSource('assets/note$a.wav'));
   }
 
+  Widget build_key(int b, final Color c) {
+    return Expanded(
+      flex: 2,
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(c),
+        ),
+        onPressed: () {
+          playsound(b);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,83 +34,13 @@ class piano extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
-                flex: 2,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.red),
-                  ),
-                  onPressed: () {
-                    playsound(1);
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black),
-                  ),
-                  onPressed: () {
-                    playsound(2);
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
-                  onPressed: () {
-                    playsound(3);
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.orange),
-                  ),
-                  onPressed: () {
-                    playsound(4);
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.green),
-                  ),
-                  onPressed: () {
-                    playsound(5);
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.grey),
-                  ),
-                  onPressed: () {
-                    playsound(6);
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.purple),
-                  ),
-                  onPressed: () {
-                    playsound(7);
-                  },
-                ),
-              )
+              build_key(1, Colors.red),
+              build_key(2, Colors.black),
+              build_key(3, Colors.blue),
+              build_key(4, Colors.orange),
+              build_key(5, Colors.green),
+              build_key(6, Colors.grey),
+              build_key(7, Colors.purple),
             ],
           ),
         ),
